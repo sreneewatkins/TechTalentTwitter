@@ -23,6 +23,10 @@ public class TweetController {
     @Autowired
     private TweetService tweetService;
 
+    /*
+    The first will allow us to get all tweets, and will accept a
+    GET request to either /tweets or /.
+     */
     @GetMapping(value= {"/tweets", "/"})
     public String getFeed(Model model){
         List<Tweet> tweets = tweetService.findAll();
@@ -30,12 +34,20 @@ public class TweetController {
         return "feed";
     }
 
+    /*
+    allows us to serve up the 'new tweet' page, newTweet.html.
+     */
     @GetMapping(value = "/tweets/new")
     public String getTweetForm(Model model) {
         model.addAttribute("tweet", new Tweet());
         return "newTweet";
     }
 
+    /*
+    handles the form submission from the 'new tweet' page. This
+    method gets the logged in user and associates them with the
+    tweet!
+     */
     @PostMapping(value = "/tweets")
     public String submitTweetForm(@Valid Tweet tweet, BindingResult bindingResult, Model model) {
         User user = userService.getLoggedInUser();
