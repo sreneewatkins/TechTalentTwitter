@@ -65,13 +65,24 @@ public class User {
     have the same role - "USER".
      */
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    /*
+    what will a user be related to? Other users!
+     */
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "follower_id"))
+    @JoinTable(name = "user_follower",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id"))
     private List<User> followers;
 
+    /*
+    we also want to be able to easily get a list of the users that a particular
+    user is following
+     */
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
 
