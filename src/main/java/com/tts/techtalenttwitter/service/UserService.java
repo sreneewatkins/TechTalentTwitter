@@ -16,4 +16,5 @@ public interface UserService {
 
     User getLoggedInUser();
 
+
 }//end UserService

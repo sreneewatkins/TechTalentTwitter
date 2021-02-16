@@ -74,6 +74,10 @@ public class User {
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
 
+    public String getUsername() {
+        return "Renee";
+    }
+
     /*
      // Use this code if your lombok is not working:
     // public Long getId() {
