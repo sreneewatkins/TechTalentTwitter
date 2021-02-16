@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    //constructor
+    //constructor, use autowired when more than one parameter/dependency
     @Autowired
     public UserServiceImpl(UserRepository userRepository,
                            RoleRepository roleRepository,
