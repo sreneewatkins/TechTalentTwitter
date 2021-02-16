@@ -12,7 +12,10 @@
 </head>
 
 <body>
+
     <div class="container">
+        <div th:replace="fragments/navbar :: navbar" ></div>
+
         <h2>Welcome!</h2>
         <form th:action="@{/login}" method="post"><br/>
             <input type="text" id="username" name="username" th:placeholder="Username" class="form-control"/> <br/>

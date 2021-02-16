@@ -11,6 +11,8 @@
 
 <body>
     <div class="container">
+        <div th:replace="fragments/navbar :: navbar" ></div>
+
         <h2>Sign up</h2>
         <form th:unless="${success}" th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off" >
             <div class="form-group">
