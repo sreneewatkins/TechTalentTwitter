@@ -43,6 +43,17 @@
             <h3>No Recent Tweets</h3>
         </div>
 
+        <!--
+        follow/unfollow functionality will be utilized by pressing a button,
+        which lives inside a form and makes a POST request to one of the two
+        endpoints
+        -->
+        <form th:action="@{/follow/} + ${user.username}" th:if="${!following}" method="post">
+            <button style="float:right" type="Submit" class="btn btn-lg btn-success">Follow</button>
+        </form>
+        <form th:action="@{/unfollow/} + ${user.username}" th:if="${following}" method="post">
+            <button style="float:right" type="Submit" class="btn btn-lg btn-primary unfollow_btn">Following</button>
+        </form>
 
     </div>
 

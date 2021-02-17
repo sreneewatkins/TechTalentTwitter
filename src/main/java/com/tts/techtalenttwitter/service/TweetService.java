@@ -14,6 +14,10 @@ public interface TweetService {
 
     List<Tweet> findAllByUsers(List<User> users);
 
+    List<Tweet> findAllWithTag(String tag);
+
+    void handleTags(Tweet tweet);
+
     void save(Tweet tweet);
 
 }//end TweetService
