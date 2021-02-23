@@ -8,13 +8,13 @@ public interface UserService {
 
     User findByUsername(String userName);
 
-    List<User> findAll();
-
-    void save(User user);
+    User getLoggedInUser();
 
     User saveNewUser(User user);
 
-    User getLoggedInUser();
+    List<User> findAll();
+
+    void save(User user);
 
 
 }//end UserService

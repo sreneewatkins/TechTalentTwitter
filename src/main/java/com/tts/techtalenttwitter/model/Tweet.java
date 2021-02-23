@@ -26,6 +26,13 @@ public class Tweet {
     @Column(name = "tweet_id")
     private Long id;
 
+    @NotEmpty(message = "Tweet cannot be empty")
+    @Length(max = 280, message = "Tweet cannot have more than 280 characters")
+    private String message;
+
+    @CreationTimestamp
+    private Date createdAt;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -36,13 +43,6 @@ public class Tweet {
             joinColumns = @JoinColumn(name = "tweet_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags;
-
-    @NotEmpty(message = "Tweet cannot be empty")
-    @Length(max = 280, message = "Tweet cannot have more than 280 characters")
-    private String message;
-
-    @CreationTimestamp
-    private Date createdAt;
 
     /*
     // Use the code below if your lombok is not working:

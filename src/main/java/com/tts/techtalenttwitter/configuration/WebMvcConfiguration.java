@@ -10,6 +10,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
+
         //TODO: refactor so that there isn't a full constructor stmt
         BCryptPasswordEncoder bCryptPasswordEncoder =
                 new BCryptPasswordEncoder();

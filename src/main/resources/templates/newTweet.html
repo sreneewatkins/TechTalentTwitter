@@ -14,7 +14,9 @@
         <div th:replace="fragments/navbar :: navbar" ></div>
 
         <div class="jumbotron col-md-8 col-md-offset-2">
+
             <h2>New Tweet</h2><br/>
+
             <form th:action="@{/tweets}" th:object="${tweet}" method="post" autocomplete="off">
 
                 <div class="form-group">

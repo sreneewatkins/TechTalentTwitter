@@ -2,35 +2,40 @@
 
 <!--TODO: update spring security to version 5-->
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head>
     <title>Log in</title>
 
-    <div th:replace="/fragments/styling :: head-style" ></div>
-
+    <div th:replace="/fragments/styling :: head-style"></div>
 </head>
 
 <body>
-    <div class="container">
-        <div th:replace="fragments/navbar :: navbar" ></div>
+<div class="container">
+    <div th:replace="fragments/navbar :: navbar"></div>
 
-        <h2>Welcome!</h2>
-        <form th:action="@{/login}" method="post"><br/>
-            <input type="text" id="username" name="username" th:placeholder="Username" class="form-control"/> <br/>
-            <input type="password" th:placeholder="Password" id="password" name="password" class="form-control"/> <br/>
-            <div align="center" th:if="${param.error}">
-                <h4 style="color: red">Login unsuccessful.</h4>
-            </div>
-            <button class="btn btn-md btn-success btn-block" name="Submit" value="Login" type="Submit">Log in</button>
-        </form>
+    <h2>Welcome!</h2>
 
-        <form th:action="@{/signup}" method="post"><br/>
-            <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit">Sign up</button>
-        </form>
-    </div>
+    <form th:action="@{/login}" method="post"><br/>
 
-    <div th:replace="/fragments/styling :: body-links" ></div>
+        <input type="text" id="username" name="username" th:placeholder="Username" class="form-control"/> <br/>
+        <input type="password" id="password" name="password" th:placeholder="Password" class="form-control"/> <br/>
+
+        <div align="center" th:if="${param.error}">
+            <h4 style="color: red">Login unsuccessful.</h4>
+        </div>
+
+        <button class="btn btn-md btn-success btn-block" name="Submit" value="Login" type="Submit">Log in</button>
+    </form>
+
+    <form th:action="@{/signup}" method="post"><br/>
+        <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit">Sign up</button>
+    </form>
+
+</div>
+
+<div th:replace="/fragments/styling :: body-links"></div>
 </body>
 
 </html>

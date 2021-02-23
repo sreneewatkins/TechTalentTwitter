@@ -83,9 +83,9 @@ public class User {
     we also want to be able to easily get a list of the users that a particular
     user is following
      */
+    //TODO: whats the diff in mapped by and cascade?
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
-
 
     /*
      // Use this code if your lombok is not working:

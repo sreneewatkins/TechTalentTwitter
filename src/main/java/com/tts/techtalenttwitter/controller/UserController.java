@@ -22,10 +22,6 @@ public class UserController {
     @Autowired
     private TweetService tweetService;
 
-//    @GetMapping(value = "/users/{username}")
-//    public String getUser(@PathVariable(value="username") String username, Model model) {
-//    }
-
     @GetMapping(value = "/users/{username}")
     public String getUser(@PathVariable(value="username") String username, Model model) {
         User loggedInUser = userService.getLoggedInUser();
