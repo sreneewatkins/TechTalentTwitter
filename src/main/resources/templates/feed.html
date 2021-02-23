@@ -15,14 +15,21 @@
 
         <h2>Tweets</h2>
         <div th:each="tweet:${tweetList}">
+
+<!--${followingStatus.containsKey(tweet.user.username)
+                && followingStatus.get(tweet.user.username)}-->
+            <!--    This replaces <a/> stuff below        -->
 <!--            <h5>@<span th:text="${tweet.user.username}"></span>-->
 <!--                <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy HH:mm')}"></span></small>-->
 <!--            </h5>-->
-            <a th:href="@{/users/} + ${tweet.user.username}">
-                <h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<span th:text="${tweet.user.username}"></span>
-                    <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy HH:mm')}"></span></small></h5>
-            </a>
-            <p th:utext="${tweet.message}"></p>
+
+
+                <a th:href="@{/users/} + ${tweet.user.username}">
+                    <h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<span th:text="${tweet.user.username}"></span>
+                        <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy HH:mm')}"></span></small></h5>
+                </a>
+                <p th:utext="${tweet.message}"></p>
+
         </div>
     </div>
 
