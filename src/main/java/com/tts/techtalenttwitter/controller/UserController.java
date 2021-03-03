@@ -1,6 +1,7 @@
 package com.tts.techtalenttwitter.controller;
 
 import com.tts.techtalenttwitter.model.Tweet;
+import com.tts.techtalenttwitter.model.TweetDisplay;
 import com.tts.techtalenttwitter.model.User;
 import com.tts.techtalenttwitter.service.TweetService;
 import com.tts.techtalenttwitter.service.UserService;
@@ -27,7 +28,7 @@ public class UserController {
         User loggedInUser = userService.getLoggedInUser();
         User user = userService.findByUsername(username);
 
-        List<Tweet> tweets = tweetService.findAllByUser(user);
+        List<TweetDisplay> tweets = tweetService.findAllByUser(user);
         List<User> following = loggedInUser.getFollowing();
 
         boolean isFollowing = false;
@@ -76,7 +77,7 @@ public class UserController {
         size of that list to the HashMap
          */
         for (User user : users) {
-            List<Tweet> tweets = tweetService.findAllByUser(user);
+            List<TweetDisplay> tweets = tweetService.findAllByUser(user);
             tweetCounts.put(user.getUsername(), tweets.size());
         }
         model.addAttribute("tweetCounts", tweetCounts);
