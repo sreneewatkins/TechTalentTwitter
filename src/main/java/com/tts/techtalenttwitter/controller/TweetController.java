@@ -36,12 +36,14 @@ public class TweetController {
     The first will allow us to get all tweets, and will accept a
     GET request to either /tweets or /.
      */
-//    @GetMapping(value= {"/tweets", "/"})
-//    public String getFeed(Model model){
-//        List<TweetDisplay> tweets = tweetService.findAll();
-//        model.addAttribute("tweetList", tweets);
-//        return "feed";
-//    }
+    /*
+    @GetMapping(value= {"/tweets", "/"})
+    public String getFeed(Model model){
+        List<TweetDisplay> tweets = tweetService.findAll();
+        model.addAttribute("tweetList", tweets);
+        return "feed";
+    }
+    */
 
     /*
     add the option to allow the user to switch back and forth between
